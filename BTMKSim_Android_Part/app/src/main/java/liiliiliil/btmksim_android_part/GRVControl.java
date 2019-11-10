@@ -59,6 +59,8 @@ public class GRVControl extends AppCompatActivity {
 ////        }
 //    };
 
+    private int numberOfMassages = 0;
+
 
     private interface GRVConstants {
         public static final float ORIENTATION_HALF_RANGE_X = (float)0.6;  // You may change the value here
@@ -281,7 +283,8 @@ public class GRVControl extends AppCompatActivity {
                     //            Log.i(TAG, "length of relativeOrientation is " + relativeOrientation.length);
                     //            Log.i(TAG, "length of data is " + data.length);
                     GRVTransferService.sendData(data);
-
+//                    numberOfMassages += 1;
+//                    Log.i(TAG, "numberOfMassages is " + numberOfMassages);
                     if (station != GRVConstants.STATION_MOVE){
                         station = GRVConstants.STATION_MOVE;
                     }

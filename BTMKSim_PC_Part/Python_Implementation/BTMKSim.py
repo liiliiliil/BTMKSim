@@ -21,10 +21,12 @@ class BMKSim:
     def run(self):
         self.bluetooth.connect()
         error_count = 0
+        # total_num_of_massages = 0
         while True:
             data = self.bluetooth.run()
             if data:
                 error_count = 0
+                # total_num_of_massages += 1
                 if data[0] == MASSAGE_MOVE:
                     self.control.move_mouse(data[1:])
                 elif data[0] == MASSAGE_LEFT_CLICK:
@@ -39,7 +41,7 @@ class BMKSim:
             
             if error_count == self.max_try:
                 break
-
+        # print('\ntotal_num_of_massages:', total_num_of_massages)
         print('\nDisconnected...')
         self.bluetooth.disconnect()
 
